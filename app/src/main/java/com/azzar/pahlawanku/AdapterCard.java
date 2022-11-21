@@ -1,5 +1,6 @@
 package com.azzar.pahlawanku;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,7 +54,12 @@ public class AdapterCard extends RecyclerView.Adapter<AdapterCard.ClassViewHolde
                 xTentang = pahlawan.getTentang();
                 xFoto = pahlawan.getFoto();
 
-                Log.d("Check and ReCheck", xNama+" "+ xTentang+ " " + xFoto);
+                //Log.d("Check and ReCheck", xNama+" "+ xTentang+ " " + xFoto);
+                Intent kirim = new Intent(holder.itemView.getContext(),DetailActivity.class);
+                                kirim.putExtra("xNama",xNama);
+                                kirim.putExtra("xTentang",xTentang);
+                                kirim.putExtra("xFoto",xFoto);
+                                holder.itemView.getContext().startActivity(kirim);
             }
         });
 
