@@ -1,5 +1,6 @@
 package com.azzar.pahlawanku;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,8 +43,19 @@ public class AdapterCard extends RecyclerView.Adapter<AdapterCard.ClassViewHolde
                 .with(holder.itemView.getContext())
                 .load(pahlawan.getFoto())
                 .centerCrop()
-//                .placeholder(R.drawable.)
+                .placeholder(R.drawable.ic_baseline_person_24)
                 .into(holder.ivFoto);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String xNama,xTentang,xFoto;
+                xNama = pahlawan.getNama();
+                xTentang = pahlawan.getTentang();
+                xFoto = pahlawan.getFoto();
+
+                Log.d("Check and ReCheck", xNama+" "+ xTentang+ " " + xFoto);
+            }
+        });
 
 
     }
