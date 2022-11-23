@@ -1,5 +1,6 @@
 package com.azzar.pahlawanku;
 
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 
 public class AdapterCard extends RecyclerView.Adapter<AdapterCard.ClassViewHolder> {
     private ArrayList<ModelPahlawan> dataPahlawan;
+    private Context ctx;
 
     public AdapterCard(ArrayList<ModelPahlawan> dataPahlawan)
     {
