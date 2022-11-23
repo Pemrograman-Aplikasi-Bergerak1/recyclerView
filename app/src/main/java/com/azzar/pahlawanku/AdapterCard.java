@@ -23,15 +23,15 @@ public class AdapterCard extends RecyclerView.Adapter<AdapterCard.ClassViewHolde
     private ArrayList<ModelPahlawan> dataPahlawan;
     private Context ctx;
 
-    public AdapterCard(ArrayList<ModelPahlawan> dataPahlawan)
-    {
+    public AdapterCard(ArrayList<ModelPahlawan> dataPahlawan, Context ctx) {
         this.dataPahlawan = dataPahlawan;
+        this.ctx = ctx;
     }
 
     @NonNull
     @Override
     public ClassViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View varView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card,parent,false);
+        View varView = LayoutInflater.from(ctx).inflate(R.layout.item_card,parent,false);
         return new ClassViewHolder(varView);
     }
 
@@ -43,7 +43,7 @@ public class AdapterCard extends RecyclerView.Adapter<AdapterCard.ClassViewHolde
         holder.tvTentang.setText(pahlawan.getTentang());
 
         Glide
-                .with(holder.itemView.getContext())
+                .with(ctx)
                 .load(pahlawan.getFoto())
                 .centerCrop()
                 .placeholder(R.drawable.ic_baseline_person_24)
@@ -61,7 +61,7 @@ public class AdapterCard extends RecyclerView.Adapter<AdapterCard.ClassViewHolde
                                 kirim.putExtra("xNama",xNama);
                                 kirim.putExtra("xTentang",xTentang);
                                 kirim.putExtra("xFoto",xFoto);
-                                holder.itemView.getContext().startActivity(kirim);
+                                ctx.startActivity(kirim);
             }
         });
 
