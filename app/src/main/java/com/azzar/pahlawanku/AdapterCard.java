@@ -57,7 +57,7 @@ public class AdapterCard extends RecyclerView.Adapter<AdapterCard.ClassViewHolde
                 xFoto = pahlawan.getFoto();
 
                 //Log.d("Check and ReCheck", xNama+" "+ xTentang+ " " + xFoto);
-                Intent kirim = new Intent(holder.itemView.getContext(),DetailActivity.class);
+                Intent kirim = new Intent(ctx,DetailActivity.class);
                                 kirim.putExtra("xNama",xNama);
                                 kirim.putExtra("xTentang",xTentang);
                                 kirim.putExtra("xFoto",xFoto);
